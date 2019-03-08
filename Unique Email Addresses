@@ -1,0 +1,49 @@
+class Solution {
+public:
+    int numUniqueEmails(vector<string>& emails) {
+        vector<string> good;
+        int gol=0;
+        int answer = emails.capacity();
+        
+            for(int i=0; i<emails.capacity(); i++)
+            {
+                gol=0;
+                 for(int j=0; j<emails[i].length(); j++)
+                {
+                    if(emails[i].at(j)=='@')
+                    {
+                        gol=j;
+                    }                   
+                }
+                for(int j=0; j<gol; j++)
+                {
+                    if(emails[i].at(j)=='.')
+                    {
+                        emails[i].erase(j,1);
+                        j--;
+                        gol--;
+                    }
+                    else if(emails[i].at(j)=='+')
+                    {
+                        emails[i].erase(j,gol-j);
+                        break;
+                    }                    
+                }
+            }
+        
+        int flag =0;
+            for(int i=1; i<emails.capacity();i++)
+            {
+                flag=0;
+                for(int j=0; j<i; j++)
+                {
+                    if((!emails[i].compare(emails[j]))&&(flag==0))
+                    {
+                        answer--;
+                        flag=1;
+                    }
+                }
+            }
+    return answer;
+    }
+};
