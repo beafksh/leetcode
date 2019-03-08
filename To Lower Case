@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+void main()
+{
+	char input[100];
+	cin >> input;
+
+	char* trans;
+
+	trans = new char[strlen(input)];
+	strcpy(trans, input);
+	
+	int* trans_int;
+	trans_int = new int[strlen(input)];
+	for (int i = 0; i < strlen(input); i++)
+	{
+		if (((int)trans[i] >= 65) && ((int)trans[i] <= 90))
+		{
+			trans_int[i] = (int)trans[i] + 32;
+		}
+		else
+		{
+			trans_int[i] = (int)trans[i];
+		}
+	}
+	for (int i = 0; i < strlen(input); i++)
+	{
+		cout << (char)trans_int[i];
+	}
+	cout << endl;
+}
+/*
+65 A
+90 Z
+97 a
+122 z
+*/
