@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+void main()
+{
+	char bo[50];
+	char st[50];
+	int len;
+	int len2;
+	int i = 1;
+	while (i)
+	{
+		cout << "찾을 보석을 입력해주세요(길이 1~50)" << endl;
+		cin >> bo;
+		len = strlen(bo);
+		if (len > 50)
+		{
+			cout << "똑바로 입력하세요" << endl;
+			bo[0] = '\0';
+		}
+		else
+		{
+			break;
+		}
+	}
+	while (i)
+	{
+		cout << "스톤 문자열 을 입력해주세요(길이 1~50)" << endl;
+		cin >> st;
+		len2 = strlen(st);
+		if (len2 > 50)
+		{
+			cout << "똑바로 입력하세요" << endl;
+			st[0] = '\0';
+		}
+		else
+		{
+			break;
+		}
+	}
+	cout << endl;
+
+	int count = 0;
+
+	for (int i = 0; i < len; i++)
+	{
+		for (int j = 0; j < len2; j++)
+		{
+			if (st[j] == bo[i])
+			{
+				count++;
+			}
+		}
+	}
+
+	cout << count << endl;
+	
+	
+}
